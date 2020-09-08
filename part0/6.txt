@@ -1,0 +1,12 @@
+browser->server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa, {content: "text", date: "2020-09-07T23:34:45.437Z"}
+note over browser
+browser sends form data in JSON format via POST request 
+in this case, the form contains two variables: content of a note and a timestamp
+end note
+
+server-->browser: Returns status 201 (the new note is created)
+
+note over browser:
+browser adds the new value is added to the page
+webpage itself is not reloaded
+end note

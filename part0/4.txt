@@ -1,0 +1,22 @@
+browser->server: POST https://studies.cs.helsinki.fi/exampleapp/new_note, Form Data [note:text]
+note over browser:
+browser sends form data via POST request to the server via new note url
+in this case, the form contains one variable (note) and its value is 'text'
+end note
+
+server-->browser: Redirect to notes page
+note over server:
+server updates data sources with provided data
+then it sends a redirect request to the browser
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+note over browser:
+browser calls the redirect link 
+(in this case it is notes page)
+end note
+
+server-->browser: Updated notes page data
+note over server:
+server returns updated information on notes page
+end note
