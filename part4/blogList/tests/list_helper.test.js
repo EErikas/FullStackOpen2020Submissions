@@ -130,6 +130,101 @@ describe("favourite blog", () => {
   });
 });
 
+
+describe("most blogs", () => {
+  test("author with most blogs when there is only one author with most blogs", () => {
+    const blogs = [
+      {
+        _id: "5a422aa71b54a676234d17f8",
+        title: "title1",
+        author: "author1",
+        url: "link1.com",
+        likes: 15,
+        __v: 0,
+      },
+      {
+        _id: "5a422aa71b54a676234d17f8",
+        title: "title11",
+        author: "author1",
+        url: "link1.com",
+        likes: 15,
+        __v: 0,
+      },
+      {
+        _id: "5a422aa71b54a676234d17f9",
+        title: "title2",
+        author: "author2",
+        url: "link2.com",
+        likes: 10,
+        __v: 0,
+      },
+      {
+        _id: "5a422aa71b54a676234d17f0",
+        title: "title3",
+        author: "author3",
+        url: "link3.com",
+        likes: 5,
+        __v: 0,
+      },
+    ];
+
+    const result = listHelper.mostBlogs(blogs);
+    expect(result).toEqual({
+      author: "author1",
+      blogs: 2,
+    });
+  });
+  test("author with most likes when there are multiple authors with most likes", () => {
+    const blogs = [
+      {
+        _id: "5a422aa71b54a676234d17f8",
+        title: "title1",
+        author: "author1",
+        url: "link1.com",
+        likes: 15,
+        __v: 0,
+      },
+      {
+        _id: "5a422aa71b54a676234d17f9",
+        title: "title2",
+        author: "author2",
+        url: "link2.com",
+        likes: 15,
+        __v: 0,
+      },
+      {
+        _id: "5a422aa71b54a676234d17f8",
+        title: "title1",
+        author: "author1",
+        url: "link1.com",
+        likes: 15,
+        __v: 0,
+      },
+      {
+        _id: "5a422aa71b54a676234d17f9",
+        title: "title2",
+        author: "author2",
+        url: "link2.com",
+        likes: 15,
+        __v: 0,
+      },
+      {
+        _id: "5a422aa71b54a676234d17f0",
+        title: "title3",
+        author: "author3",
+        url: "link3.com",
+        likes: 5,
+        __v: 0,
+      },
+    ];
+    const result = listHelper.mostBlogs(blogs);
+    expect(result).toEqual({
+      author: "author2",
+      blogs: 2,
+    });
+  });
+});
+
 describe("most likes", () => {
   test("author with most likes when there is only one author with most likes", () => {
     const blogs = [
